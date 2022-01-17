@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card-header" [style.background-color]="backgroundColor">
+    {{ pageTitle }}
+  </div>
+  <div class="card-body">
+    <input type="color">
+    <input type="range" value="{{ sizeImage }}" (input)="changeSizeImage($event)" max="200" min="10">
+   Size image:  {{ sizeImage}} px
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Tên</th>
+        <th scope="col">Email</th>
+        <th scope="col">Image</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr *ngFor="let  user of users; let i = index">
+        <th scope="row">{{ i + 1}}</th>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email}}</td>
+        <td><img [width]="sizeImage" [src]="user.image" alt=""></td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>

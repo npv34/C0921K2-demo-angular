@@ -2,5 +2,6 @@ export interface IUser {
   id: number,
   name: string,
   email: string,
-  image: string
+  image: string,
+  birthday? : string
 }

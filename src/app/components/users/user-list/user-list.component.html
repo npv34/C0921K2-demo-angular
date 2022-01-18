@@ -2,10 +2,13 @@
   <div class="card-header" [style.background-color]="backgroundColor">
     {{ pageTitle }}
   </div>
+  <input type="text" [(ngModel)]="text">
+  {{ text }}
   <div class="card-body">
     <input type="color">
     <input type="range" value="{{ sizeImage }}" (input)="changeSizeImage($event)" max="200" min="10">
    Size image:  {{ sizeImage}} px
+    <input type="text" (keyup)="search($event)">
     <table class="table table-striped">
       <thead>
       <tr>
@@ -13,6 +16,8 @@
         <th scope="col">Tên</th>
         <th scope="col">Email</th>
         <th scope="col">Image</th>
+        <th scope="col">Birthday</th>
+        <th></th>
       </tr>
       </thead>
       <tbody>
@@ -22,6 +27,9 @@
         <td>{{ user.name }}</td>
         <td>{{ user.email}}</td>
         <td><img [width]="sizeImage" [src]="user.image" alt=""></td>
+        <td>{{ user.birthday | date: "dd-MM-yyyy"}}</td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteUser(i)">Delete</button></td>
       </tr>
 
       </tbody>
